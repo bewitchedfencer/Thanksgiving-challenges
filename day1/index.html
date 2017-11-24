@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Factorial</title>
+</head>
+<body>
+	<h1>We don't need the html for this challenge.</h1>
+	<p>open the console, and type your function directly in there for testing. </p>
+	<script type="text/javascript">
+		//this is just a starter file, if you prefer to link your own file, feel free.
+		
+		function factorial(number) {
+			//your code here
+			//if statement for ruling out negatives from factorials
+			if(number<0){
+				console.log("Cannot use factorial on negative numbers");
+			}
+			//conditional statement for a number equal to 0
+			else if(number===0){
+				number=1;
+				console.log(number);
+			}
+			//conditional statement to check if the number is a whole number
+			else if(number%1!=0){
+				console.log("Only whole numbers can be factorialized.");
+			}
+			//the logic for finding the factorial
+			//make the multipler equal to the number
+			else{multiplier=number;
+			//cannot go to zero or the answer will be zero
+			for(var n=number; n>1; n--){
+				//the multiplier is reduced by one each time
+				console.log(multiplier);
+				multiplier-=1;
+				console.log("after minus", multiplier);
+				//the number is saved as the number times the multiplier, each loop
+				number=number*multiplier;
+				console.log("each multiplication", number);
+			}
+			//eventually the number is returned
+			return number;
+			}}
+		
+console.log(factorial(3));
+
+
+	</script>
+</body>
+</html>
+

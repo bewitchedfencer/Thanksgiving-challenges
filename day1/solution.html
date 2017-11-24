@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Factorial</title>
+</head>
+<body>
+	<h1>We don't need the html for this challenge.</h1>
+	<p>open the console, and type your function directly in there for testing. </p>
+	<script type="text/javascript">
+		//this is just a starter file, if you prefer to link your own file, feel free.
+
+
+		function factorial(number) {
+			//ensure that it is a number
+			if(typeof number !== "number"){
+				return false;
+			}
+			//make sure it is positive
+			if(number < 0 ){
+				return false;
+			}
+			//make sure that it is a whole number
+			//This will actually not work for realllly close edge cases, however the implemntation of the loop means we will still get a good value.
+			if(Math.floor(number) !== number){
+				return false;
+			}
+
+			var result = 1;
+			for(var i = 1; i <= number; i++){
+				result *= i;
+			}
+			return result;
+		}
+
+
+
+	</script>
+</body>
+</html>
+
