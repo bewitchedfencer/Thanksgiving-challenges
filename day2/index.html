@@ -1,57 +1,105 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Matrix Addition</title>
 </head>
+
 <body>
 	<h1>We don't need the html for this challenge.</h1>
 	<script type="text/javascript">
 		//this is just a starter file, if you prefer to link your own file, feel free.
-		var answerMatrix=[]
+		var answerMatrix = [];
+		var subMatrix=[];
 		var myMatrix = [
-			[1,2,3,4],
-			[5,6,7,8],
-			[3,4,2,1]
+			[1, 2, 3, 4],
+			[5, 6, 7, 8],
+			[3, 4, 2, 1]
 		];
 		var myOtherMatrix = [
-			[1,1,1,1],
-			[8,7,6,5],
-			[4,3,2,1]
+			[1, 1, 1, 1],
+			[8, 7, 6, 5],
+			[4, 3, 2, 1]
 		];
 		//function for adding Matrices; takes in two matrices of the same size
 		//as arguments
-		function addMatrix (argumentOne,argumentTwo) {
+		function addMatrix(argumentOne, argumentTwo) {
 			//checking to see if the lengths of both arrays are the same
-			if(argumentOne.length===argumentTwo.length){
-				//checking to see if the arrays in each slot of the array are the same length
-				if(argumentOne[argumentOne.length-1].length===argumentTwo[argumentTwo.length-1].length){
-					console.log("success");
-					//running through the top level array
-					for(var i=0; i<argumentOne.length; i++){
+			if (argumentOne.length === argumentTwo.length) {
+				//running through the top level array
+				for (var i = 0; i < argumentOne.length; i++) {
+					//checking to see if the arrays in each slot of the array are the same length
+					if (argumentOne[i].length === argumentTwo[i].length) {
+						console.log("success");
 						//creates a holder array to keep the added values during each iteration
-						var holderArray=[]
+						var holderArray = []
 						//runs through the length of each array within the top level array
-						for(var j=0; j<argumentOne[argumentOne.length-1].length; j++){
-								//the addition is pushed to the holder array
-								holderArray.push(argumentOne[i][j]+argumentTwo[i][j]);
-								
-								//how do I push the numbers into the arrays to which they belong?
+						for (var j = 0; j < argumentOne[argumentOne.length - 1].length; j++) {
+							//the addition is pushed to the holder array
+							holderArray.push(argumentOne[i][j] + argumentTwo[i][j]);
+
+						}
+						//push the holder array to the answer Matrix before re-establishing the 
+						//values during the next round of addition.
+						answerMatrix.push(holderArray);
 					}
-					//push the holder array to the answer Matrix before re-establishing the 
-					//values during the next round of addition.
-					answerMatrix.push(holderArray);
+					else {
+					console.log("undefined");
+					i=argumentOne.length;
+				} 
 				}
+
+			} else {
+				console.log("undefined");
 			}
+		}
 
-				}}
-			//calling the addMatrix function and console logging the results
-			addMatrix(myMatrix, myOtherMatrix);
-			console.log(answerMatrix);
-			//code here.
-			//fee free to change the names of the arguemnts to something more semantic
-		
+	//function for subtracting Matrices; takes in two matrices of the same size
+		//as arguments
+		function subtractMatrix(argument1, argument2) {
+			//checking to see if the lengths of both arrays are the same
+			if (argument1.length === argument2.length) {
+				//running through the top level array
+				for (var m = 0; m < argument1.length; m++) {
+					//checking to see if the arrays in each slot of the array are the same length
+					if (argument1[m].length === argument2[m].length) {
+						console.log("success");
+						//creates a hold array to keep the subtracted values during each iteration
+						var holdArray = []
+						//runs through the length of each array within the top level array
+						for (var n = 0; n < argument1[argument1.length - 1].length; n++) {
+							//the subtraction is pushed to the hold array
+							holdArray.push(argument1[m][n] - argument2[m][n]);
+
+						}
+						//push the hold array to the subMatrix before re-establishing the 
+						//values during the next round of subtraction.
+						subMatrix.push(holdArray);
+					}
+					//if the array lengths don't match
+					else {
+					console.log("undefined");
+					m=argument1.length;
+				} 
+				}
+				//if the array lengths don't match
+			} else {
+				console.log("undefined");
+			}
+		}
 
 
+
+
+		//calling the addMatrix function and console logging the results
+		addMatrix(myMatrix, myOtherMatrix);
+		console.log(answerMatrix);
+
+		subtractMatrix(myMatrix, myOtherMatrix);
+		console.log(subMatrix);
+		//code here.
+		//fee free to change the names of the arguemnts to something more semantic
 	</script>
 </body>
+
 </html>
